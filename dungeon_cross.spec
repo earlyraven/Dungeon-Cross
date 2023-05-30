@@ -7,6 +7,7 @@ added_files = [
 	('sprite/*', 'sprite'),
     ('puzzles.json.gz', '.'),
     ('tutorial.txt', '.'),
+    ('guided_example_solve.txt', '.'),
     ('about.txt', '.'),
     ('audio/music/*', 'audio/music'),
     ('audio/sfx/*', 'audio/sfx')

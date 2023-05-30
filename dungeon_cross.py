@@ -64,6 +64,7 @@ class DungeonCross:
         # Create Menus 
         self._menu_theme = self._menu_build_theme()
         self._menu_tutorial = self._menu_build_tutorial()
+        self._menu_guided_example_solve = self._menu_build_guided_example_solve()
         self._menu_about = self._menu_build_about()
         self._menu = self._menu_build_main()
         self._menu_pid: int = 0
@@ -753,6 +754,7 @@ class DungeonCross:
         )
         menu.add.vertical_fill(2)
         menu.add.button("How to Play", action=self._menu_tutorial)
+        menu.add.button("Guided Example Solve", action=self._menu_guided_example_solve)
         menu.add.button("About", self._menu_about)
         menu.add.button('Quit', self._menu_quit)
         return menu
@@ -779,6 +781,32 @@ class DungeonCross:
             theme = self._menu_theme
         )
         with open(resource_path("tutorial.txt")) as f:
+            lines = f.readlines()
+        f.close()
+        menu.add.image(resource_path("sprite/hydra3.png"))
+        for line in lines:
+            if line.strip() == '':
+                continue
+            if line.strip()[0] == '#':
+                file_str = line.strip('#')
+                try:
+                    menu.add.image(resource_path(file_str.strip()))
+                except AssertionError as e:
+                    print(e)
+            else:
+                menu.add.label(line.splitlines()[0], align=pygame_menu.locals.ALIGN_LEFT)
+        menu.add.image(resource_path("sprite/hydra3.png"))
+        return menu
+
+#GUIDED EXAMPLE SOLVE --> a visualization of steps for solving a puzzle.
+    def _menu_build_guided_example_solve(self):
+        menu: pygame_menu.Menu = pygame_menu.Menu(
+            "Guided Example Solve", 
+            700, 
+            600,
+            theme = self._menu_theme
+        )
+        with open(resource_path("guided_example_solve.txt")) as f:
             lines = f.readlines()
         f.close()
         menu.add.image(resource_path("sprite/hydra3.png"))

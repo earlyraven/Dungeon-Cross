@@ -1,0 +1,25 @@
+Let's have a look at how to solve a puzzle:  There are many ways to solve the puzzles.  This guide follows a systematic approach.  As you gain experience you may be able to combine several requirements together at once to reduce the amount of steps needed.  We begin with the following:
+
+This is our starting map.  Let's scan the rows and columns for clues.
+
+First, we check each row to see what clues we can use.  Note: - The 7 indicates that the whole row (except for the dragon) will be walls. - The 0 indicates that the whole row will be empty.
+
+Now, we can do the same, but for the columns.  See how the 4 and 0 let us fill in walls and blank spaces respectively.
+
+Now we can use the restriction that monsters must appear at a dead-end to fill in some more walls.  Also note: some monsters have only one available connection, so that spot must be blank.
+
+Now we can use the restriction on chests (must be in a 3x3 walkable room), to mark some empty tiles.  There's only one valid position for each of the chests, so we know what the blank squares for the treasure room are.
+
+With our new knowledge, we can now revisit the row and column hints, and see what else we can find. Row hints: 1st 3 -> There's only 3 spots that can have a wall, and we need 3 walls, so they must all be walls.  2nd 3 -> Same as above.
+
+Now we can do the same but for the columns again:  1st 2 -> We already have our 2 walls, so the rest must be blank.  2nd, 3rd, and 4th 2s -> Only one spot remains for the missing wall.
+
+Sometimes, after checking vertically and horizontally, we learn more info that can be used to solve further.  Let's check horizontally again:  3rd 3 -> There's only 2 more spots available and so they must be walls.
+
+The treasure room must have a single exit, and there's only one spot left for it.
+
+We can't have an empty non-treasure-room 2x2 region, so we must place a wall here.  Alternately: Column (2nd 6) -> Only one spot left for the missing wall.
+
+Both the x-axis 2, and the y-axis 6 indicate the last square here must be a wall.
+
+Congrats! We've done it.  Now try it out yourself!
